@@ -10,7 +10,7 @@ body,td,th,p{
 body {
 	background-color: #fdfdfd;
 	margin: 0;
-	position:relative;
+	
 }
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
@@ -35,11 +35,11 @@ h1, h2, h3, h4, h5, h6 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-#maincontent {
+main {
   background-color: #f3f3f3;
   min-height: 100%;
 }
-#footer {
+footer {
   background-color: #444;
   color: #aaa;
   font-size: 8pt;
@@ -48,6 +48,9 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-align: center;
   text-transform: uppercase;
 }
+img, object, embed, video{max-width:100%;}
+
+
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -64,6 +67,9 @@ nav h1 a {
   font-weight: 200;
   letter-spacing: 10px;
   text-transform: uppercase;
+  min-height: 48px;
+  margin: 32px;
+  
 }
 #breadcrumb {
     padding: 10px 40px 16px;
@@ -71,7 +77,7 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+    width: calc(100% - 80px);
 }
 
 /* Display list items side by side */
@@ -97,6 +103,9 @@ nav h1 a {
     color: #01447e;
     text-decoration: underline;
 }
+
+
+
 /* ====================== Map ====================== */
 #map {
   height: 400px;
