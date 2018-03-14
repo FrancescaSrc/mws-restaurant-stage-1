@@ -1,0 +1,69 @@
+main, section{
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+
+
+}
+
+@media screen and (max-width:500px){
+	.filter-options lable {
+		display:none;
+	}
+#neighborhoods-select, #cuisines-select{
+display: flex;
+justify-content: center;
+padding:2px;
+margin:10px;
+font-size:4vw;
+
+}
+nav h1 a{
+	font-size: 1em; /*fallback for if browser does not support vw */
+	font-size:4.5vw;
+}
+
+}
+
+@media screen and (min-width:501px){
+	.filter-options lable {
+		font-size:5vw;
+		font-size:0.8rem;
+		
+	}
+#neighborhoods-select, #cuisines-select{
+padding:2px;
+margin:10px 8px;
+width:35%;
+}
+nav h1 a{
+	font-size: 1em; /*fallback for if browser does not support vw */
+	font-size:5.2vw;
+}
+}
+
+
+
+@media screen and (min-width:750px){
+	
+#neighborhoods-select, #cuisines-select{
+display: flex;
+justify-content: center;
+padding:2px;
+margin:10px;
+max-width:250px;
+
+}
+
+nav h1 a{
+	font-size: 2em; /*fallback for if browser does not support vw */
+	
+}
+
+}
+
+
+
+
+
+
