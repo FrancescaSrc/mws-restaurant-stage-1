@@ -1,10 +1,12 @@
-main, section{
-width: 100%;
+main, section, #restaurants-list {
 display: flex;
 flex-wrap: wrap;
 
 
 }
+section#reviews-container, section#restaurant-list{
+	display: flex;
+	flex-wrap: wrap;}
 
 @media screen and (max-width:500px){
 	.filter-options lable {
@@ -22,7 +24,9 @@ nav h1 a{
 	font-size: 1em; /*fallback for if browser does not support vw */
 	font-size:4.5vw;
 }
+#restaurant-container, #reviews-container {
 
+}
 }
 
 @media screen and (min-width:501px){
@@ -40,11 +44,19 @@ nav h1 a{
 	font-size: 1em; /*fallback for if browser does not support vw */
 	font-size:5.2vw;
 }
+.restaurant-ratings{
+	width:100%;
+	font-size: 1em;
+	max-height: auto;
+}
+
+
 }
 
 
 
-@media screen and (min-width:750px){
+@media screen and (min-width:800px){
+
 	
 #neighborhoods-select, #cuisines-select{
 display: flex;
@@ -60,6 +72,55 @@ nav h1 a{
 	
 }
 
+/*Restaurant list */
+.restaurant-listing{ 
+width: 47%;
+margin: 5px;
+font-size: 1em;
+
+}
+/*Restaurant view */
+section#restaurant-container{
+width:50%;
+
+}
+
+section#reviews-container{
+	margin-left:2%;
+	
+	width:48%}
+
+.restaurant-ratings{
+	width:100%;
+	
+	font-size: 1em;
+}
+
+#restaurant-img{
+	width:50vw;
+}
+table#restaurant-hours{
+	order: 2;
+	
+	}
+
+section#map-container {
+ 
+}
+.restaurant-listing h1{letter-spacing: 0px;}
+
+}
+
+@media screen and (min-width:1250px){
+	
+	/*Restaurant list */
+.restaurant-listing{ 
+width: 31%;
+margin-left: 1%;
+font-size: 1em;
+
+}
+.restaurant-listing h1{letter-spacing: 0px;}
 }
 
 
