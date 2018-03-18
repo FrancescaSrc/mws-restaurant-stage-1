@@ -122,12 +122,13 @@ nav h1 a {
 
 /* ====================== Map ====================== */
 #map {
-  height: 400px;
+  
   width: 100%;
    background-color: #ccc;
 }
 #map-container {
    width: 100%;
+   min-height: 400px; 
 }
 
 
@@ -160,7 +161,7 @@ section#restaurants-list{
 	  background-color: #f3f3f3;
 	  margin: 0;
 	  padding: 30px 15px 60px;
-	  
+	  padding: 10px 0px;
 }
 
 .restaurant-listing h1, #restaurant-container h1{
@@ -337,7 +338,7 @@ p.rating{
  p.comments{
 	   padding: 0 10px;
 	   text-align: justify;
-	   
+	   min-height: 450px; 
 
 	   
   }

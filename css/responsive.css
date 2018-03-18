@@ -75,43 +75,81 @@ nav h1 a{
 /*Restaurant list */
 .restaurant-listing{ 
 width: 47%;
+
+font-size: 1em;
+
+}
+#restaurant-img{
+	
+}
+
+}
+
+@media screen and (min-width:901px){
+main{
+	width: 90vw;
+	margin: 0 auto;
+	    max-width: 1600px;
+}
+#review-container {
+display: flex;
+flex-wrap: wrap;
+
+
+}
+	
+#neighborhoods-select, #cuisines-select{
+display: flex;
+justify-content: center;
+padding:2px;
+margin:10px;
+max-width:250px;
+
+}
+
+nav h1 a{
+	font-size: 2em; /*fallback for if browser does not support vw */
+	
+}
+
+/*Restaurant list */
+.restaurant-listing{ 
+width: 47%;
 margin: 5px;
 font-size: 1em;
 
 }
+
+
 /*Restaurant view */
 section#restaurant-container{
 width:50%;
-
 }
-
 section#reviews-container{
-	margin-left:2%;
 	
-	width:48%}
+	width:100%}
 
+.inside #map-container {
+margin-right: 0.5%;
+width:49.5%;
+
+}
 .restaurant-ratings{
-	width:100%;
-	
+	width:47%;
 	font-size: 1em;
+	margin-right:0.5%
+
 }
 
-#restaurant-img{
-	width:50vw;
-}
-table#restaurant-hours{
-	order: 2;
+li.restaurant-ratings:last-child{margin-right:0;}
+
+
+
+
+
+@media screen and (min-width:1350px){
 	
-	}
 
-section#map-container {
- 
-}
-.restaurant-listing h1{letter-spacing: 0px;}
-
-}
-
-@media screen and (min-width:1250px){
 	
 	/*Restaurant list */
 .restaurant-listing{ 
@@ -119,11 +157,18 @@ width: 31%;
 margin-left: 1%;
 font-size: 1em;
 
+
 }
 .restaurant-listing h1{letter-spacing: 0px;}
+
+.restaurant-ratings{
+	width:32%;
+
+
 }
 
 
+}
 
 
 
