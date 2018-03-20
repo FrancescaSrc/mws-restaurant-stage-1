@@ -1,174 +1,138 @@
-main, section, #restaurants-list {
+main, section, #restaurants-list, section#reviews-container {
 display: flex;
 flex-wrap: wrap;
-
-
 }
-section#reviews-container, section#restaurant-list{
-	display: flex;
-	flex-wrap: wrap;}
+
+.inside #map-container{order: 2}
+		#map-container {order:0;}
+		#restaurant-container{order:1;}		
+		#reviews-container {order: 2;}
+
 
 @media screen and (max-width:500px){
-	.filter-options lable {
-		display:none;
-	}
-#neighborhoods-select, #cuisines-select{
-display: flex;
-justify-content: center;
-padding:2px;
-margin:10px;
-font-size:4vw;
+		
+		#neighborhoods-select, #cuisines-select{
+		display: flex;
+		justify-content: center;
+		padding:2px;
+		margin:10px;
+		font-size:4vw;
 
-}
-nav h1 a{
-	font-size: 1em; /*fallback for if browser does not support vw */
-	font-size:4.5vw;
-}
-#restaurant-container, #reviews-container {
+		}
+		
+		nav h1 a{
+			font-size: 1em; /*fallback for if browser does not support vw */
+			font-size:4.5vw;
+		}
+		
 
-}
 }
 
 @media screen and (min-width:501px){
-	.filter-options lable {
-		font-size:5vw;
-		font-size:0.8rem;
-		
+	main{
+		width: 95vw;
+		margin: 5px auto;
+		font-size: 0.8em;
 	}
-#neighborhoods-select, #cuisines-select{
-padding:2px;
-margin:10px 8px;
-width:35%;
+				
+		#neighborhoods-select, #cuisines-select{
+		padding:2px 5px;
+		margin:10px 8px;
+		font-size:1.2em;
+		width:40%;
+		max-width:350px;
+		}
+		
+		nav h1 a{
+			font-size: 1em; /*fallback for if browser does not support vw */
+			font-size:4.2vw;
+		}
+		
+		.restaurant-ratings{
+			width:100%;
+			font-size: 1em;
+			  
+		}
+		
 }
-nav h1 a{
-	font-size: 1em; /*fallback for if browser does not support vw */
-	font-size:5.2vw;
+
+
+@media screen and (min-width:615px){
+
+		
+		main{
+			width: 97vw;
+			margin: 0 auto;
+			font-size: 0.8em;
+		}
+		
+		
+
+		/*Restaurant list */
+		.restaurant-listing{ 
+		width: 47%;
+		margin: 5px;
+		}
+
+		/*Restaurant view */
+		#restaurant-container{
+		width:49.5%;
+		margin-right:0.5%;		
+		}
+		
+		#reviews-container{		
+			width:100%
+		}
+
+		.inside #map-container {
+		margin-left: 0.5%;
+		width:49.5%;
+		}
+		
+		.restaurant-ratings{
+			width:48%;
+			font-size: 1em;
+			margin: 0 auto;
+		}
+		
+		li.restaurant-ratings:last-child{margin-right:0;}
+		.inside #map-container{order: 2}
+		#map-container {order:0;}
+		#restaurant-container{order:1;}		
+		#reviews-container {order: 3;}
+
 }
-.restaurant-ratings{
-	width:100%;
-	font-size: 1em;
-	max-height: auto;
-}
-
-
-}
 
 
 
-@media screen and (min-width:800px){
-
+@media screen and (min-width:970px){
 	
-#neighborhoods-select, #cuisines-select{
-display: flex;
-justify-content: center;
-padding:2px;
-margin:10px;
-max-width:250px;
-
-}
-
-nav h1 a{
-	font-size: 2em; /*fallback for if browser does not support vw */
-	
-}
-
-/*Restaurant list */
-.restaurant-listing{ 
-width: 47%;
-
-font-size: 1em;
-
-}
-#restaurant-img{
-	
-}
-
-}
-
-@media screen and (min-width:901px){
-main{
-	width: 90vw;
-	margin: 0 auto;
-	    max-width: 1600px;
-}
-#review-container {
-display: flex;
-flex-wrap: wrap;
-
-
-}
-	
-#neighborhoods-select, #cuisines-select{
-display: flex;
-justify-content: center;
-padding:2px;
-margin:10px;
-max-width:250px;
-
-}
-
-nav h1 a{
-	font-size: 2em; /*fallback for if browser does not support vw */
-	
-}
-
-/*Restaurant list */
-.restaurant-listing{ 
-width: 47%;
-margin: 5px;
-font-size: 1em;
-
-}
-
-
-/*Restaurant view */
-section#restaurant-container{
-width:50%;
-}
-section#reviews-container{
-	
-	width:100%}
-
-.inside #map-container {
-margin-right: 0.5%;
-width:49.5%;
-
-}
-.restaurant-ratings{
-	width:47%;
-	font-size: 1em;
-	margin-right:0.5%
-
-}
-
-li.restaurant-ratings:last-child{margin-right:0;}
-
-
-
-
-
-@media screen and (min-width:1350px){
-	
-
-	
+	main{
+		max-width: 1600px;
+		}
+	nav h1{
+		font-size: 3vw;
+	}
+		
 	/*Restaurant list */
-.restaurant-listing{ 
-width: 31%;
-margin-left: 1%;
-font-size: 1em;
+	.restaurant-listing{ 
+	width: 31%;
+	margin-left: 1%;
+	font-size: 1em;
+	}
+	
+	.restaurant-listing h1{letter-spacing: 0px;}
+
+	.restaurant-ratings{
+		width:32%;
+	}
+	
+	p.comment{
+		min-height: 350px;
+		}
 
 
-}
-.restaurant-listing h1{letter-spacing: 0px;}
-
-.restaurant-ratings{
-	width:32%;
-
-
-}
-
-
-}
+	}
 
 
 

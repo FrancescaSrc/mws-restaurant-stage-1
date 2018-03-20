@@ -61,6 +61,8 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
 
   cuisines.forEach(cuisine => {
     const option = document.createElement('option');
+	option.setAttribute = ('role', 'option');
+	option.setAttribute = ('tabindex', '0');
     option.innerHTML = cuisine;
     option.value = cuisine;
     select.append(option);
@@ -137,27 +139,34 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  li.className='restaurant-listing';
   
-  const name = document.createElement('h1');
+  const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
   li.append(name);
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
+  image.setAttribute = ('alt', 'restaurant'+restaurant.name);
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
 
   const neighborhood = document.createElement('p');
+  neighborhood.className='neighborhood';
   neighborhood.innerHTML = restaurant.neighborhood;
   li.append(neighborhood);
 
   const address = document.createElement('p');
+  address.className='address';
   address.innerHTML = restaurant.address;
   li.append(address);
 
   const more = document.createElement('a');
-  more.innerHTML = 'View Details';
+  more.setAttribute('role', 'button')
+  more.setAttribute('aria-labelled', 'View details on '+restaurant.name);
+
+  more.innerHTML = "View details";
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
