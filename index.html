@@ -11,16 +11,17 @@
 </head>
 
 <body>
+
   <header>
-    <nav>
+   
       <h1 class="logo"><a href="./index.html">Restaurant Reviews</a></h1>
-    </nav>
+   
   </header>
 
   <main id="maincontent">
   <section class="filter-options">
-		  <select id="neighborhoods-select" role="listbox" name="neighborhoods" tabindex="0"; aria-label="select neighborhoods" onchange="updateRestaurants()">
-          <option value="all" role="option">All Neighborhoods</option>
+		  <select id="neighborhoods-select" name="neighborhoods" aria-label="select neighborhoods" onchange="updateRestaurants()">
+          <option value="all">All Neighborhoods</option>
         </select>
         <select id="cuisines-select" name="cuisines" role="listbox" aria-label="select cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
@@ -28,12 +29,13 @@
 		
       
     </section>
+	<a href="#restaurants-list" class="skip-links">skip to main content</a>
     <section id="map-container">
       <div id="map"></div>
     </section>
-	
+	<section id="restaurants-list" tabindex=”-1”>
 	 <h2>Filter Results</h2>
-    <ul id="restaurants-list" role="list" tabindex="0";></ul>
+    <ul></ul>
 	</section>
   </main>
 

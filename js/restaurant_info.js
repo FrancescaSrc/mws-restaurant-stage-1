@@ -49,15 +49,28 @@ fetchRestaurantFromURL = (callback) => {
  * Create restaurant HTML and add it to the webpage
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
+
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
 
+  const image = document.getElementById('restaurant-img');
+  image.alt = 'restaurant '+restaurant.name;
+  image.className = 'restaurant-img';
+  image.sizes="(max-width: 501px) 50vw, 100vw, (min-width:700px) 50vw, 100vw, (min-width:915px) 50vw, 30vw';";
+   image.srcset +='./images/'+restaurant.id+'-medium.webp 350w, ';
+   image.srcset +='./images/'+restaurant.id+'-medium.jpg 350w, ';
+  image.srcset +='./images/'+restaurant.id+'-large.webp 500w, ';
+   image.srcset +='./images/'+restaurant.id+'-large.jpg 500w, ';
+   image.srcset +='./images/'+restaurant.id+'-large6.webp 600w, ';
+    image.srcset +='./images/'+restaurant.id+'-large6.jpg 600w, ';
+	image.srcset +='./images/'+restaurant.id+'-large_x2.webp 800w,'; 
+   image.srcset +='./images/'+restaurant.id+'-large_x2.jpg 800w'; 
+  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  
+  
+  
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
-
-  const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
    const title = document.createElement('h3');  

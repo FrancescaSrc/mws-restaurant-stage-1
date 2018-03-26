@@ -145,11 +145,22 @@ createRestaurantHTML = (restaurant) => {
   name.innerHTML = restaurant.name;
   li.append(name);
 
+  const picture = document.createElement('picture');
+   const source = document.createElement('source');
+   source.media='(max-width: 501px), (min-width:700px),(min-width:915px)';
+   source.sizes='(max-width: 501px) 50vw, 100vw, (min-width:700px) 50vw, 100vw, (min-width:915px) 50vw, 30vw';
+   source.srcset='./images/'+restaurant.id+'-small.webp 200w, ./images/'+restaurant.id+'-small.jpg 200w,';
+   source.srcset +='./images/'+restaurant.id+'-medium.webp 350w, ./images/'+restaurant.id+'-medium.jpg 350w, ';
+   source.srcset +='./images/'+restaurant.id+'-large.webp 500w, ./images/'+restaurant.id+'-large.jpg 500w';
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.setAttribute = ('alt', 'restaurant'+restaurant.name);
+  image.alt = 'restaurant '+restaurant.name;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
+  picture.append(source);
+  picture.append(image);
+  li.append(picture);
+  
+ 
 
 
   const neighborhood = document.createElement('p');
@@ -165,7 +176,6 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.setAttribute('role', 'button')
   more.setAttribute('aria-labelled', 'View details on '+restaurant.name);
-
   more.innerHTML = "View details";
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
@@ -186,3 +196,24 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
+
+/* register service worker
+
+if (navigator.serviceWorker) {
+
+  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+
+    if(reg.installing) {
+      console.log('Service worker installing');
+    } else if(reg.waiting) {
+      console.log('Service worker installed');
+    } else if(reg.active) {
+      console.log('Service worker active');
+    }
+
+  }).catch(function(error) {
+    // registration failed
+    console.log('Registration failed with ' + error);
+  });
+}
+*/

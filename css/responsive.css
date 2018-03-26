@@ -9,6 +9,8 @@ flex-wrap: wrap;
 		#reviews-container {order: 2;}
 
 @media screen and (max-width:501px){
+	
+	
 		
 		#neighborhoods-select, #cuisines-select{
 		display: flex;
@@ -19,11 +21,13 @@ flex-wrap: wrap;
 
 		}
 		
-		nav h1 a{
+		header h1 a{
 			font-size: 1.1em; /*fallback for if browser does not support vw */
 			font-size:7vw;
 			letter-spacing: 4px;
 		}
+		
+		
 		.restaurant-listing{
 			width: 100%;
 			min-width: 350px;
@@ -34,7 +38,7 @@ flex-wrap: wrap;
 		#restaurant-img{
 			width: 100%;
 			object-fit: cover;
-			  height: 50vh;
+			  height: 40vh;
 			width: 100vw;
 			
 		
@@ -46,7 +50,6 @@ flex-wrap: wrap;
 		}
 		.restaurant-listing p{ 
 		width:50%;
-		font-size: 1.2em;
 		min-height: 60px;
 		margin:0 auto;
 		
@@ -55,10 +58,8 @@ flex-wrap: wrap;
 		
 		
 		.restaurant-listing h3, #restaurant-name h2{
-		font-size: 1.2em;
-		
+		font-size: 1em;		
 		padding: 10px 0;
-		
 		}
 		
 		#restaurant-list a{
@@ -70,6 +71,10 @@ flex-wrap: wrap;
 		
 		.restaurant-listing a, #restaurants-list a {
 		padding: 10px;
+		}
+		
+		#reviews-container{
+		
 		}
 
 }
@@ -95,6 +100,12 @@ flex-wrap: wrap;
 			font-size:4.2vw;
 		}
 		
+		
+		#restaurant-container{
+		  font-size: 1.2em;
+		 
+		  }
+		
 		.restaurant-ratings{
 			width:100%;
 			font-size: 1em;
@@ -104,26 +115,20 @@ flex-wrap: wrap;
 		
 		.restaurant-listing{
 			border-radius: 30px 0px 30px 0px;
-			font-size: 1.2em;
+			font-size: 1em;
 		}
 		
 		#restaurants-list p{ 
-		
-		font-size: 1.2em;
-		margin:5px auto;
-		min-height: 5px;
+		min-height: 10px;
 		
 		}
 		
 		#restaurants-list a {
- 
-  display: block;
-  font-size: 1.2em;
-  display: block;
-  margin: 0;
-  padding: 15px;
-  border-radius: 0px 0px 30px 0px;
-}
+		  display: block;
+		  margin: 0;
+		  padding: 15px;
+		  border-radius: 0px 0px 30px 0px;
+		}
 
 		#restaurant-img{
 			width: 100%;
@@ -144,14 +149,6 @@ flex-wrap: wrap;
 
 @media screen and (min-width:700px){
 
-		
-		main{
-			width: 97vw;
-			margin: 0 auto;
-			font-size: 0.8em;
-		}
-		
-		
 
 		/*Restaurant list */
 		.restaurant-listing{ 
@@ -162,7 +159,8 @@ flex-wrap: wrap;
 		/*Restaurant view */
 		#restaurant-container{
 		width:49.5%;
-		margin-right:0.5%;		
+		margin-right:0.5%;
+		  font-size: 1em;		  	
 		}
 		
 		#reviews-container{		
@@ -176,16 +174,20 @@ flex-wrap: wrap;
 		
 		.restaurant-ratings{
 			width:48%;
-			font-size: 1em;
-			margin: 0 auto;
+			margin: 5px;
 		}
+		.inside #restaurant-img  {
+		
+		height: 40vh;
+		width: 50vw;
+	}
+		
 		#restaurant-img {
-        max-width: 100%;
-    object-fit: cover;
-    margin: 0 auto;
-    height: 50vh;
-    width: 50vw;
-}
+		max-width: 100%;
+		object-fit: cover;
+		margin: 0 auto;
+		width: 100vw;
+	}
 		
 		li.restaurant-ratings:last-child{margin-right:0;}
 		.inside #map-container{order: 2}
@@ -201,8 +203,9 @@ flex-wrap: wrap;
 	
 	main{
 		max-width: 1200px;
+		margin: 0 auto;
 		}
-	nav h1{
+	header a{
 		font-size: 3vw;
 	}
 		
@@ -213,7 +216,7 @@ flex-wrap: wrap;
 	font-size: 1em;
 	}
 	
-	.restaurant-listing h1{letter-spacing: 0px;}
+	.restaurant-listing h3{letter-spacing: 0px;}
 
 	.restaurant-ratings{
 		width:32%;
