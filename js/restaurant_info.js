@@ -51,6 +51,8 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const name = document.getElementById('restaurant-name');
+  name.setAttribute('tabindex', '0');
+  name.setAttribute('aria-label', 'Restaurant:'+ restaurant.name);
   name.innerHTML = restaurant.name;
 
   const image = document.getElementById('restaurant-img');
@@ -70,10 +72,14 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   
   
   const address = document.getElementById('restaurant-address');
+  address.setAttribute('tabindex', '0');
+  address.setAttribute('aria-label', 'Address:'+ restaurant.address);
   address.innerHTML = restaurant.address;
 
   const cuisine = document.getElementById('restaurant-cuisine');
-   const title = document.createElement('h3');  
+  cuisine.setAttribute('tabindex', '0');
+  cuisine.setAttribute('aria-label', 'Cuisine type:'+restaurant.cuisine_type);
+   const title = document.createElement('h3'); 
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -93,11 +99,18 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     const row = document.createElement('tr');
 
     const day = document.createElement('td');
+
+	day.setAttribute('aria-label', 'On:'+key);
+	day.setAttribute('tabindex', '0');
     day.innerHTML = key;
     row.appendChild(day);
 
     const time = document.createElement('td');
+
+	time.setAttribute('aria-label', 'open from:'+operatingHours[key]);
+	time.setAttribute('tabindex', '0');
     time.innerHTML = operatingHours[key];
+	
     row.appendChild(time);
 
     hours.appendChild(row);
@@ -121,6 +134,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   }
   const ul = document.getElementById('reviews-list');
   reviews.forEach(review => {
+	 
     ul.appendChild(createReviewHTML(review));
   });
   container.appendChild(ul);
@@ -132,23 +146,28 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 createReviewHTML = (review) => {
   const li = document.createElement('li');
   li.className='restaurant-ratings';
+  li.tabindex= 0;
   const name = document.createElement('p');
   name.className='name';
   name.innerHTML = review.name;
+   name.setAttribute('tabindex', '0');
   li.appendChild(name);
 
   const date = document.createElement('p');
   date.className='date';
+    date.setAttribute('tabindex', '0');
   date.innerHTML = review.date;
   li.appendChild(date);
 
   const rating = document.createElement('p');
   rating.className='rating';
+  rating.setAttribute('tabindex', '0');
   rating.innerHTML = `Rating: ${review.rating}`;
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.className='comments';
+   comments.setAttribute('tabindex', '0');
   comments.innerHTML = review.comments;
   li.appendChild(comments);
 
@@ -161,6 +180,7 @@ createReviewHTML = (review) => {
 fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
+  li.tabindex=0;
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
 }

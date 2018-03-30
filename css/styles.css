@@ -29,9 +29,9 @@ ul, li,td,th,p{
 
 
 a {
-	color: orange;
+	color: #fff;
 	text-decoration: none;
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 a:hover, a:focus {
 	color: #3397db;
@@ -193,7 +193,7 @@ padding:8px;
 	  margin: 0;
 	 padding: 10px 0px;
 	 list-style: outside none none;
-	 height: 100%;
+	
 }
 
 .restaurant-listing h3, #restaurant-container h2{

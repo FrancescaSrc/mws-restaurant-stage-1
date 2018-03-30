@@ -137,10 +137,12 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 /**
  * Create restaurant HTML.
  */
+
 createRestaurantHTML = (restaurant) => {
+	
   const li = document.createElement('li');
   li.className='restaurant-listing';
-  
+  li.tabindex=0;
   const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
   li.append(name);
@@ -160,28 +162,28 @@ createRestaurantHTML = (restaurant) => {
   picture.append(image);
   li.append(picture);
   
- 
-
-
   const neighborhood = document.createElement('p');
+  neighborhood.tabindex=0;
   neighborhood.className='neighborhood';
   neighborhood.innerHTML = restaurant.neighborhood;
   li.append(neighborhood);
 
   const address = document.createElement('p');
   address.className='address';
+  address.tabindex=0;
   address.innerHTML = restaurant.address;
   li.append(address);
 
   const more = document.createElement('a');
   more.setAttribute('role', 'button')
-  more.setAttribute('aria-labelled', 'View details on '+restaurant.name);
+  more.setAttribute('aria-label', 'View details on '+restaurant.name);
   more.innerHTML = "View details";
   more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
-
+  li.append(more);
+  
   return li
 }
+
 
 /**
  * Add markers for current restaurants to the map.
@@ -197,23 +199,37 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 }
 
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./js/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
+
 /* register service worker
 
-if (navigator.serviceWorker) {
-
-  navigator.serviceWorker.register('/sw.js').then(function(reg) {
-
-    if(reg.installing) {
-      console.log('Service worker installing');
-    } else if(reg.waiting) {
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+	.then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, else if(registration.waiting) {
       console.log('Service worker installed');
-    } else if(reg.active) {
+	  } else if(reg.active) {
       console.log('Service worker active');
-    }
-
-  }).catch(function(error) {
-    // registration failed
-    console.log('Registration failed with ' + error);
+    }.catch(function(error) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
   });
+  
 }
 */
