@@ -3,6 +3,7 @@
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <!-- Normalize.css for better cross-browser consistency -->
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <!-- Main CSS file -->
@@ -39,11 +40,12 @@
       <p id="restaurant-address" tabindex="0" aria-label="restaurant address"></p>
       <table id="restaurant-hours" tabindex="0" aria-label="opening hours"></table>
     </section>
+	<a href="#reviews-container" class="skip-links">skip to reviews</a>
     <!-- end restaurant -->
 	
 	 <!-- Beginning map -->
-    <section id="map-container">
-      <div id="map"></div><a href="#reviews-container" class="skip-links">skip to reviews</a>
+    <section id="map-container" role="application" aria-hidden="true">
+      <div id="map"></div>
     </section>
     <!-- End map -->
     <!-- Beginning reviews -->
@@ -55,8 +57,8 @@
   <!-- End main -->
 
   <!-- Beginning footer -->
-  <footer>
-    Copyright (c) 2017 <a href="./index.html"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+  <footer id="footer">
+    Copyright (c) 2017 <a href="./index.html" title="back to homepage">Restaurant Reviews</a> All Rights Reserved.
   </footer>
   <!-- End footer -->
 
