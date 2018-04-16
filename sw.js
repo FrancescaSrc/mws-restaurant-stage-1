@@ -1,4 +1,4 @@
-var staticCacheName = 'restview-1';
+var staticCacheName = 'restview-2';
 var contentImgsCache = 'restview-imgs';
 var allCaches = [
 	staticCacheName,
@@ -64,21 +64,17 @@ self.addEventListener('fetch', function(event) {
 			event.respondWith(servePhoto(event.request));
 			return;
 		}
-		
-	} 
-	
+		}	
 	
 	event.respondWith(
-    caches.match(event.request).then(function(response) {
+    caches.match(requestUrl.pathname).then(function(response) {
 		return response || fetch(event.request);
-		}).catch(function() {
-		console.log("error fetching");
-		
-	})
+	}).catch(err => console.log("Fetch error", err))
 	); 
+	
+	
+	
 });
-
-
 
 
 function servePhoto(request) {
@@ -90,12 +86,13 @@ function servePhoto(request) {
 			if (response) return response;
 			
 			return fetch(request).then(function(networkResponse) {
-				cache.put(storageUrl, networkResponse.clone());
-				return networkResponse;
+			cache.put(storageUrl, networkResponse.clone());
+			return networkResponse;
 			});
-		});
+			});
 	});
 }
+
 
 
 

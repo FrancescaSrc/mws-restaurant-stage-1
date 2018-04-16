@@ -12,13 +12,14 @@ main, section, #restaurants-list, section#reviews-container {
 	
 	/* main general */
 	
-	main{
+	#filter-results{
 		width: 98vw;
 		margin: 0 auto;
 	}
 	.inside main{
 		width: 90vw;
 		margin: 5px auto;
+		min-width: 320px;
 		
 	}
 	
@@ -95,14 +96,21 @@ main, section, #restaurants-list, section#reviews-container {
 		border-radius: 0px 0px 15px 0px;
 	}
 	
+	/* restaurant details */
+	#restaurant-img {
+		width: 100vw;
+		height: calc(100vw*0.75); 
+	}
+	
+	
 }
 
 
 @media screen and (min-width:502px){
 	
 	/*  main general  */	
-	main{
-		width: 90vw;
+	#filter-results{
+		width: 95vw;
 		margin: 5px auto;
 		
 	}
@@ -110,7 +118,6 @@ main, section, #restaurants-list, section#reviews-container {
 		padding:2px 5px;
 		margin:10px 8px;
 		font-size:1.2em;
-		width:40%;
 		max-width:350px;
 	}
 	
@@ -164,19 +171,24 @@ main, section, #restaurants-list, section#reviews-container {
 		
 	}
 	
+	#restaurant-img {
+		width: 100vw;
+		height: calc(100vw*0.75); 
+	}
+	
 }
 
 @media screen and (min-width:580px){
 	.inside main{
-		width: 85vw;
-		margin: 5px auto;
+		width: 90vw;
+		margin: 0px auto;
 		
 	}
 	
 	.restaurant-container img{
-		width:100%;
 		object-fit: cover;
 		width: 100vw;
+		height:calc(100vw*0.75);
 	}
 	
 }
@@ -186,7 +198,7 @@ main, section, #restaurants-list, section#reviews-container {
 	
 	.inside main{
 		width: 95vw;
-		margin: 5px auto;		
+		margin: 0px auto;		
 	}
 	
 	/*Restaurant list */
@@ -220,12 +232,12 @@ main, section, #restaurants-list, section#reviews-container {
 	
 	#restaurant-img {
 		width: 50vw;
-		height: calc(50vw*0.75); 
+		height: calc(47.5vw*0.75); 
 	}
 	
 	img#restaurant-img.restaurant-img   {		
 		width: 50vw;
-		object-fit: fill;
+		object-fit: cover;
 		
 	}
 	
@@ -243,8 +255,10 @@ main, section, #restaurants-list, section#reviews-container {
 @media screen and (min-width:950px){
 	
 	main{
-		max-width: 1200px;
+		width: 90vw;
 		margin: 0 auto;
+		
+		
 	}
 	header a{
 		font-size: 3vw;
@@ -266,6 +280,8 @@ main, section, #restaurants-list, section#reviews-container {
 		letter-spacing: 0px;
 	}
 	/*Restaurant details */
+	h2#restaurant-name{padding: 10px 0;}
+	
 	.restaurant-ratings{
 		width:32%;
 	}
@@ -274,13 +290,46 @@ main, section, #restaurants-list, section#reviews-container {
 		min-height: 350px;
 	}
 	#restaurant-hours{
-	font-size: 1.4em;
-	}
-	
-	
-	}
-	
-	
-	
-	
+		font-size: 1.2em;
 		
+	}
+	
+	#restaurant-img {
+		width: 45vw;
+		height: calc(45vw*0.75); 
+	}
+	
+	img#restaurant-img.restaurant-img   {		
+		width: 50vw;
+		object-fit: cover;
+		
+	}
+	
+	
+}
+
+@media screen and (min-width:1300px){
+	
+	main{
+		max-width: 80vw;
+		margin: 0 auto;
+		max-width: 1200px;
+	}
+	
+	
+	#restaurant-img {
+		width: 50vw;
+		height: calc(600px*0.75); 
+	}
+	
+	img#restaurant-img.restaurant-img   {		
+		width: 50vw;
+		object-fit: cover;
+		
+	} 
+	
+	
+}
+
+
+

@@ -58,15 +58,12 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 	const image = document.getElementById('restaurant-img');
 	image.alt = 'restaurant '+restaurant.name;
 	image.className = 'restaurant-img';
-	image.sizes="(max-width: 501px) 100vw, (min-width: 501px) 100vw, (min-width:700px) 30vw 50vw 100vw";
-	image.srcset +='./images/'+restaurant.id+'-medium.webp 350w, ';
-	image.srcset +='./images/'+restaurant.id+'-medium.jpg 350w, ';
-	image.srcset +='./images/'+restaurant.id+'-large.webp 550w, ';
-	image.srcset +='./images/'+restaurant.id+'-large.jpg 550w, ';
-	image.srcset +='./images/'+restaurant.id+'-large7.webp 700w, ';
-    image.srcset +='./images/'+restaurant.id+'-large7.jpg 700w, ';
-	image.srcset +='./images/'+restaurant.id+'-large_x2.webp 800w,'; 
-	image.srcset +='./images/'+restaurant.id+'-large_x2.jpg 800w'; 
+	image.sizes="(max-width: 501px) 350px, 100vw, (min-width: 501px), 550px, 100vw, (min-width:700px) 550px, 100vw";
+	image.srcset +='./images/'+restaurant.id+'-medium.webp 350w, ./images/'+restaurant.id+'-medium.jpg 350w,';
+	image.srcset +='./images/'+restaurant.id+'-large.webp 550w, ./images/'+restaurant.id+'-large.jpg 550w,';
+	image.srcset +=' ./images/'+restaurant.id+'-large.webp 550w, ./images/'+restaurant.id+'-large.jpg 550w,';
+	image.srcset +='./images/'+restaurant.id+'-large7.webp 700w, ./images/'+restaurant.id+'-large7.jpg 700w,';
+ 	image.srcset +='./images/'+restaurant.id+'-large_x2.webp 800w, ./images/'+restaurant.id+'-large_x2.jpg 800w'; 
 	image.src = DBHelper.imageUrlForRestaurant(restaurant);
 	
 	
@@ -84,66 +81,66 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 	
 	// fill operating hours
 	if (restaurant.operating_hours) {
-	fillRestaurantHoursHTML();
+		fillRestaurantHoursHTML();
 	}
 	// fill reviews
 	fillReviewsHTML();
-	}
-	
-	/**
+}
+
+/**
 	* Create restaurant operating hours HTML table and add it to the webpage.
-	*/
-	fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
+*/
+fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
 	const hours = document.getElementById('restaurant-hours');
 	for (let key in operatingHours) {
-    const row = document.createElement('tr');
-	
-    const day = document.createElement('td');
-	
-	day.setAttribute('aria-label', 'On:'+key);
-	day.setAttribute('tabindex', '0');
-    day.innerHTML = key;
-    row.appendChild(day);
-	
-    const time = document.createElement('td');
-	
-	time.setAttribute('aria-label', 'open from:'+operatingHours[key]);
-	time.setAttribute('tabindex', '0');
-    time.innerHTML = operatingHours[key];
-	
-    row.appendChild(time);
-	
-    hours.appendChild(row);
+		const row = document.createElement('tr');
+		
+		const day = document.createElement('td');
+		
+		day.setAttribute('aria-label', 'On:'+key);
+		day.setAttribute('tabindex', '0');
+		day.innerHTML = key;
+		row.appendChild(day);
+		
+		const time = document.createElement('td');
+		
+		time.setAttribute('aria-label', 'open from:'+operatingHours[key]);
+		time.setAttribute('tabindex', '0');
+		time.innerHTML = operatingHours[key];
+		
+		row.appendChild(time);
+		
+		hours.appendChild(row);
 	}
-	}
-	
-	/**
+}
+
+/**
 	* Create all reviews HTML and add them to the webpage.
-	*/
-	fillReviewsHTML = (reviews = self.restaurant.reviews) => {
+*/
+fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 	const container = document.getElementById('reviews-container');
 	const title = document.createElement('h3');
 	title.innerHTML = 'Reviews';
 	container.appendChild(title);
 	
 	if (!reviews) {
-    const noReviews = document.createElement('p');
-    noReviews.innerHTML = 'No reviews yet!';
-    container.appendChild(noReviews);
-    return;
+		const noReviews = document.createElement('p');
+		noReviews.innerHTML = 'No reviews yet!';
+		container.appendChild(noReviews);
+		return;
 	}
 	const ul = document.getElementById('reviews-list');
 	reviews.forEach(review => {
-	
-    ul.appendChild(createReviewHTML(review));
+		
+		ul.appendChild(createReviewHTML(review));
 	});
 	container.appendChild(ul);
-	}
-	
-	/**
+}
+
+/**
 	* Create review HTML and add it to the webpage.
-	*/
-	createReviewHTML = (review) => {
+*/
+createReviewHTML = (review) => {
 	const li = document.createElement('li');
 	li.className='restaurant-ratings';
 	li.tabindex= 0;
@@ -172,23 +169,23 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 	li.appendChild(comments);
 	
 	return li;
-	}
-	
-	/**
+}
+
+/**
 	* Add restaurant name to the breadcrumb navigation menu
-	*/
-	fillBreadcrumb = (restaurant=self.restaurant) => {
+*/
+fillBreadcrumb = (restaurant=self.restaurant) => {
 	const breadcrumb = document.getElementById('breadcrumb');
 	const li = document.createElement('li');
 	li.tabindex=0;
 	li.innerHTML = restaurant.name;
 	breadcrumb.appendChild(li);
-	}
-	
-	/**
+}
+
+/**
 	* Get a parameter by name from page URL.
-	*/
-	getParameterByName = (name, url) => {
+*/
+getParameterByName = (name, url) => {
 	if (!url)
     url = window.location.href;
 	name = name.replace(/[\[\]]/g, '\\$&');
@@ -199,5 +196,16 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 	if (!results[2])
     return '';
 	return decodeURIComponent(results[2].replace(/\+/g, ' '));
-	}
-		
+}
+
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', function() {
+		navigator.serviceWorker.register('sw.js').then(function(registration) {
+			// Registration was successful
+			console.log('ServiceWorker registration successful with scope: ', registration.scope);
+			}, function(err) {
+			// registration failed :(
+			console.log('ServiceWorker registration failed: ', err);
+		});
+	});
+}

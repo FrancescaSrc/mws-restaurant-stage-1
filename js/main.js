@@ -53,7 +53,7 @@ fetchCuisines = () => {
 			self.cuisines = cuisines;
 			fillCuisinesHTML();
 		}
-	});
+		});
 }
 
 /**
@@ -154,18 +154,18 @@ createRestaurantHTML = (restaurant) => {
 	const picture = document.createElement('picture');
 	
 	const source = document.createElement('source');
-	source.media='(max-width: 501px), (min-width: 502px), (min-width:700px)';
-	source.sizes='(max-width: 501px) 50vw, 100vw, (min-width: 502px) 50vw, 100vw, (min-width:700px) 30vw 50vw 100vw';
+	source.media='(max-width: 501px), (min-width: 502px), (min-width:700px), (min-width: 950px)';
+	source.sizes='(max-width: 501px) 200px, 100vw, (min-width: 502px) 550px, 100vw, (min-width:700px) 350px, 550px, 100vw, (min-width: 950px) 350px, 550px, 100vw' ;
 	source.srcset='./images/'+restaurant.id+'-small.webp 200w, ./images/'+restaurant.id+'-medium.webp 350w, ';
 	source.srcset +='./images/'+restaurant.id+'-large.webp 550w, ./images/'+restaurant.id+'-large7.webp 700w, ';
-	source.srcset +='./images/'+restaurant.id+'-medium.webp 350w, ./images/'+restaurant.id+'-large7.webp 700w, ./images/'+restaurant.id+'-large_x2.webp 800w';
+	source.srcset +='./images/'+restaurant.id+'-medium.webp 350w, ./images/'+restaurant.id+'-large.webp 550w, ./images/'+restaurant.id+'-large7.webp 700w ';
 	picture.append(source); 
 	const sourceL = document.createElement('source');
-	sourceL.media='(max-width: 501px), (min-width: 502px), (min-width:700px)';
-	sourceL.sizes='(max-width: 501px) 50vw, 100vw, (min-width: 502px) 50vw, 100vw, (min-width: 700px) 30vw, 50vw, 100vw';
+	sourceL.media='(max-width: 501px), (min-width: 502px), (min-width:700px), (min-width: 950px)';
+	sourceL.sizes='(max-width: 501px) 200px, 100vw, (min-width: 502px) 550px, 100vw, (min-width: 700px) 350px, 550px, 100vw, (min-width: 950px) 350px, 550px, 100vw';
 	sourceL.srcset='./images/'+restaurant.id+'-medium.jpg 200w, ./images/'+restaurant.id+'-large.jpg 350w, ';
 	sourceL.srcset +='./images/'+restaurant.id+'-large.jpg 550w, ./images/'+restaurant.id+'-large7.jpg 700w, ';
-	sourceL.srcset +='./images/'+restaurant.id+'-medium.webp 350w, ./images/'+restaurant.id+'-large7.jpg 700w, ./images/'+restaurant.id+'-large_x2.jpg 800w ';
+	sourceL.srcset +='./images/'+restaurant.id+'-medium.webp 350w, ./images/'+restaurant.id+'-large.jpg 550w, ./images/'+restaurant.id+'-large7.jpg 700w ';
 	picture.append(sourceL);
 	const image = document.createElement('img');
 	image.className = 'restaurant-img';
@@ -186,44 +186,44 @@ createRestaurantHTML = (restaurant) => {
 	address.setAttribute('aria-label', 'Address:'+restaurant.address);
 	address.setAttribute('tabindex', '0');
 	address.innerHTML = restaurant.address;
-li.append(address);
-
-const more = document.createElement('a');
-more.setAttribute('role', 'button')
-more.setAttribute('aria-label', 'View details on '+restaurant.name);
-more.innerHTML = "View details";
-more.href = DBHelper.urlForRestaurant(restaurant);
-li.append(more);
-
-return li
+	li.append(address);
+	
+	const more = document.createElement('a');
+	more.setAttribute('role', 'button')
+	more.setAttribute('aria-label', 'View details on '+restaurant.name);
+	more.innerHTML = "View details";
+	more.href = DBHelper.urlForRestaurant(restaurant);
+	li.append(more);
+	
+	return li
 }
 
 
 /**
-* Add markers for current restaurants to the map.
+	* Add markers for current restaurants to the map.
 */
 addMarkersToMap = (restaurants = self.restaurants) => {
-restaurants.forEach(restaurant => {
-// Add marker to the map
-const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
-google.maps.event.addListener(marker, 'click', () => {
-window.location.href = marker.url
-});
-self.markers.push(marker);
-});
+	restaurants.forEach(restaurant => {
+		// Add marker to the map
+		const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
+		google.maps.event.addListener(marker, 'click', () => {
+			window.location.href = marker.url
+		});
+		self.markers.push(marker);
+	});
 }
 
 
 if ('serviceWorker' in navigator) {
-window.addEventListener('load', function() {
-navigator.serviceWorker.register('sw.js').then(function(registration) {
-// Registration was successful
-console.log('ServiceWorker registration successful with scope: ', registration.scope);
-}, function(err) {
-// registration failed :(
-console.log('ServiceWorker registration failed: ', err);
-});
-});
+	window.addEventListener('load', function() {
+		navigator.serviceWorker.register('sw.js').then(function(registration) {
+			// Registration was successful
+			console.log('ServiceWorker registration successful with scope: ', registration.scope);
+			}, function(err) {
+			// registration failed :(
+			console.log('ServiceWorker registration failed: ', err);
+		});
+	});
 }
 
 
